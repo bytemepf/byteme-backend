@@ -1,3 +1,5 @@
+const {getProductById, postProduct} = require("../controllers/products/index")
+
 const getProductByIdHandler = (req, res) => {
     const id = req.params.id;
     try {
@@ -9,6 +11,15 @@ const getProductByIdHandler = (req, res) => {
     }
 };
 
+const postProductHandler = async (req, res) => {
+    const {name, email, password, role, google} = req.body;
+    await postProduct(name, email, password, role, google)
+    res.status(201).json("creado correctamente")
+}
+
+
 module.exports = {
     getProductByIdHandler,
+    postProductHandler,
 };
+
