@@ -4,7 +4,7 @@ const {getProductByIdHandler, postProductHandler} = require("../handlers/product
 
 const products = Router();
 
-products.get("/", get);
+products.get("/");
 
 products.post("/", postProductHandler);
 

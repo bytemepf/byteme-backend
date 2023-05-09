@@ -1,4 +1,5 @@
-const {getProductById, postProduct} = require("../controllers/products/index")
+const postProduct = require("../controllers/products/postProductHandler.controller")
+const getProductById = require("../controllers/products/getProductById.controller")
 
 const getProductByIdHandler = (req, res) => {
     const id = req.params.id;
