@@ -7,7 +7,7 @@ const { app } = require("./server/app");
 const main = async () => {
   try {
     //
-    await database.sync({ force: true });
+    await database.sync({ alter: true });
     console.log("Conexion establecida con la base de datos");
 
     app.listen(process.env.PORT, () => {
