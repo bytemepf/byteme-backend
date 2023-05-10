@@ -10,6 +10,7 @@ products.post("/", postProductHandler);
 
 products.get("/:id", getProductByIdHandler);
 
+
 module.exports = {
   products,
 };
