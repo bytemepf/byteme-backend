@@ -14,7 +14,10 @@ const loginUser = async (req, res) => {
         .json({ message: "No existe un usuario con el correo " + email });
     }
 
-    const validPassword = bcryptjs.compareSync(password, user.password);
+    const validPassword = bcryptjs.compareSync(
+      toString(password),
+      user.password
+    );
     if (!validPassword) {
       return res.status(400).json({ message: "Contraseña incorrecta" });
     }

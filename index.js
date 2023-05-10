@@ -1,14 +1,20 @@
 require("dotenv").config();
 
 const { database } = require("./database/connection");
-require("./models/User.model");
+const { loadDataInCategories } = require("./database/loadData");
+
+require("./models");
+
 const { app } = require("./server/app");
 
 const main = async () => {
   try {
     //
-    await database.sync({ alter: true });
+    await database.sync({ force: true });
     console.log("Conexion establecida con la base de datos");
+
+    await loadDataInCategories();
+    console.log("Categorias cargadas correctamente en la base de datos");
 
     app.listen(process.env.PORT, () => {
       console.log("Servidor eschuchando en el puerto", process.env.PORT);
