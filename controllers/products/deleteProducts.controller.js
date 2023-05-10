@@ -16,7 +16,6 @@ const  DeleteProduct= async (req,res)=>{
     res.status(400).send("not found");
   }
 
-}  
 
 
 
