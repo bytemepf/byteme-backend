@@ -12,5 +12,5 @@ products.get("/filter", filterProducts)
 products.get("/:id", getProductById)
 
 module.exports = {
-  products,
+  products
 };
