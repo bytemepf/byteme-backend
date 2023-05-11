@@ -8,7 +8,7 @@ const isEmail = async (email = "") => {
 };
 
 const isNumber = (num) => {
-  if (!(typeof num === "number")) {
+  if (!(typeof Number(num) === "number")) {
     throw new Error(`El campo no es un numero`);
   }
   return true;
