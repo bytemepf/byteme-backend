@@ -14,7 +14,7 @@ const loginUser = async (req, res) => {
     }
 
     const validPassword = bcryptjs.compareSync(
-      password,
+      password.toString(),
       user.password
     );
     console.log({password, passworddb: user.password ,bool: bcryptjs.compareSync(
