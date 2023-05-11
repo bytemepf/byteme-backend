@@ -4,7 +4,6 @@ const { generateJWT } = require("../../helpers/generateJWT");
 
 const loginUser = async (req, res) => {
   let { email, password } = req.body;
-
   try {
     const user = await User.findOne({ where: { email } });
 
@@ -15,9 +14,14 @@ const loginUser = async (req, res) => {
     }
 
     const validPassword = bcryptjs.compareSync(
-      toString(password),
+      password,
       user.password
     );
+    console.log({password, passworddb: user.password ,bool: bcryptjs.compareSync(
+      password,
+      user.password
+    )})
+    
     if (!validPassword) {
       return res.status(400).json({ message: "Contraseña incorrecta" });
     }
