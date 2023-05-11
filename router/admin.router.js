@@ -7,12 +7,14 @@ const {
   postProduct,
 } = require("../controllers/products/postProduct.controller");
 const { allowedCategories, isNumber } = require("../helpers/dbValidators");
+const { putProduct } = require("../controllers/products/putProduct.controller");
+const { getAllProducts } = require("../controllers/products/getAllProducts.controller");
 
 const admin = Router();
 
 admin.put("/user/active/:id", updateUser);
 admin.post(
-  "/product",
+  "/products",
   [
     check("name", "El nombre es obligatorio").not().isEmpty(),
     check("description", "La descripción es obligatoria es obligatorio")
@@ -31,6 +33,8 @@ admin.post(
   ],
   postProduct
 );
+// admin.put("/products/:id", putProduct)
+
 
 module.exports = {
   admin,

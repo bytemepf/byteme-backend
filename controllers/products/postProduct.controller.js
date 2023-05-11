@@ -9,7 +9,13 @@ const postProduct = async (req, res) => {
     await fs.unlink(req.files.image.tempFilePath);
     return res.json(product);
   }
-  return res.status(400).json({ message: "Se requiere una imagen" });
+
+  if (req.body.image.length>4) {
+    const product = await Product.create({ ...req.body });
+    return res.json(product);
+  }
+
+  return res.status(400).json({ message: "Se requiere una imagen o url" });
 };
 
 module.exports = {

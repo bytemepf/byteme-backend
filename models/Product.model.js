@@ -15,7 +15,6 @@ const Product = database.define(
     },
     description: {
       type: DataTypes.STRING,
-      unique: true,
       allowNull: false,
     },
     brand: {
