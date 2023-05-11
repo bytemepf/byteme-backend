@@ -27,8 +27,8 @@ const Product = database.define(
       allowNull: false,
     },
     category: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     quantity: {
       type: DataTypes.INTEGER,
