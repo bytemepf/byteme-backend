@@ -6,7 +6,7 @@ const registerUser = async (req, res) => {
 
 
   const salt = bcryptjs.genSaltSync();
-  password = bcryptjs.hashSync(password, salt);
+  password = bcryptjs.hashSync(password.toString(), salt);
 
   const user = await User.create({ name, email, password });
 
