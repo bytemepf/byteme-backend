@@ -4,7 +4,7 @@ const { Product } = require("../../models/Product.model");
 
 const getProductsByName = async (req, res) => {
 
-  const {query, page=1, limit=10} =  req.query
+  const {query = "", page=1, limit=10} =  req.query
 
   try {
     
