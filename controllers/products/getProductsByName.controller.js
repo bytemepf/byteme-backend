@@ -33,7 +33,6 @@ const getProductsByName = async (req, res) => {
     data:pagedProducts
   })
 
-    return res.json(products)
   } catch (error) {
     console.log(error.message)
     return res.status(500).json({message:"Error en el servidor", error: error.message})
