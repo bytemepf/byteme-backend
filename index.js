@@ -11,7 +11,7 @@ const { app } = require("./server/app");
 
 const main = async () => {
   try {
-    await database.sync({ force: true });
+    await database.sync({ force: false });
     console.log("Conexion establecida con la base de datos");
     app.listen(process.env.PORT, () => {
       console.log("Servidor eschuchando en el puerto", process.env.PORT);
