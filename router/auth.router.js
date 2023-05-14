@@ -1,8 +1,13 @@
+// Importaciones de terceros (NPM)
 const { Router } = require("express");
 const { check } = require("express-validator");
-const { validateFields } = require("../middlewares/validateFields");
-const { registerUser, loginUser } = require("../controllers/auth");
-const { isEmail } = require("../helpers/dbValidators");
+
+// Importaciones locales (helpers y middlewares)
+const { isEmail } = require("../helpers");
+const { validateFields } = require("../middlewares");
+
+// Importaciones locales (Controladores)
+const { registerUser, loginUser } = require("../controllers");
 
 const auth = Router();
 
@@ -19,7 +24,7 @@ auth.post(
   registerUser
 );
 
-auth.get(
+auth.post(
   "/login",
   [
     check("email", "El correo es obligatorio").isEmail(),
