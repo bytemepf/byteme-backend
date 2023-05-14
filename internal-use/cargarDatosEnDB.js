@@ -1,3 +1,6 @@
+// Este archivo carga los siguientes productos a la base de datos
+// Este archivo no se ejecuta automaticamente
+
 const { default: axios } = require("axios");
 
 const registros = [
@@ -369,7 +372,7 @@ async function insertarRegistros() {
     await Promise.all(promesasDeRegistros);
     console.log("Registros subidos correctamente");
   } catch (error) {
-    
+
     console.log("Error al subir los registros");
   }
 }

@@ -1,46 +1,58 @@
-const filtering = ({products, name, category, brand, min, max, alphabetic, numeric}) => {
-    
-      if (name) {
-        products = products.filter((product) => product.name.toLowerCase().includes(name.toLowerCase()));
-      }
-  
-      if (category) {
-        products = products.filter((product) => product.category.toLowerCase() === category.toLowerCase());
-      }
-  
-      if (brand) {
-        products = products.filter((product) => product.brand.toLowerCase() === brand.toLowerCase());
-      }
-  
-      if (min) {
-        products = products.filter((product) => product.price >= Number(min));
-      }
-  
-      if (max) {
-        products = products.filter((product) => product.price <= Number(max));
-      }
-  
-      if (alphabetic) {
-        products.sort((a, b) => {
-          let x = a.name.toLowerCase(), y = b.name.toLowerCase();
-          return x == y ? 0 : x > y ? 1 : -1;
-        });
-  
-        if(alphabetic==="z-a"){
-          products.reverse()
-        }
-      }
-  
-      if (numeric) {
-        products.sort((a, b) => a.price - b.price);
-        if(numeric==="desc"){
-          products.reverse()
-        }
-      }
-      
-      return products
+// El metodo filtering ordena en cascada de acuerdo a los parametros recibidos
+// Devuelve una array de productos filtrado y ordenado
+const filtering = ({ products, name, category, brand, min, max, alphabetic, numeric }) => {
+
+  // filtra por nombre
+  if (name) {
+    products = products.filter((product) => product.name.toLowerCase().includes(name.toLowerCase()));
+  }
+
+  // filtra por categoria
+  if (category) {
+    products = products.filter((product) => product.category.toLowerCase() === category.toLowerCase());
+  }
+
+  // filtra por marca
+  if (brand) {
+    products = products.filter((product) => product.brand.toLowerCase() === brand.toLowerCase());
+  }
+
+  // filtra por precio minimo
+  if (min) {
+    products = products.filter((product) => product.price >= Number(min));
+  }
+
+  //filtra por precio maximo
+  if (max) {
+    products = products.filter((product) => product.price <= Number(max));
+  }
+
+  // filtra por orden alfabetico
+  if (alphabetic) {
+    products.sort((a, b) => {
+      let x = a.name.toLowerCase(), y = b.name.toLowerCase();
+      return x == y ? 0 : x > y ? 1 : -1;
+    });
+
+    // filtra por orden alfabetico inverso
+    if (alphabetic === "z-a") {
+      products.reverse()
+    }
+  }
+
+  // filtra por precio de forma ascendente
+  if (numeric) {
+    products.sort((a, b) => a.price - b.price);
+
+    // filtra por precio de forma descendente
+    if (numeric === "desc") {
+      products.reverse()
+    }
+  }
+
+  return products
 }
 
 module.exports = {
-    filtering
+  filtering
 }
