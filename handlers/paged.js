@@ -3,7 +3,7 @@ const paged = (products, totalPages, page, limit) => {
 
     let pagedProducts = []
 
-    // No me acuerdo que hace esto, si siquera se como lo codee XD
+    // No me acuerdo que hace esto, ni siquera se como lo codee XD
     // Simplemente funciona y si funciona no lo toquen
     if (Number(page) === 1) {
         pagedProducts = products.splice(0, limit)
