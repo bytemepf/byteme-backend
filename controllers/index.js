@@ -1,3 +1,4 @@
+
 // Esto es un archivo de barrel. Sirve para realizar una exportación masiva
 // Evita llenar los archivos de importaciones
 
@@ -43,3 +44,4 @@ module.exports = {
     registerUser,
     logicalDeletion
 }
+
