@@ -10,6 +10,7 @@ router.use("/api/auth", auth);
 router.use("/api/products", products);
 router.use("/api/admin", admin);
 router.use("/api/user", user);
+// router.get("/api/internal");
 
 module.exports = {
   router,
