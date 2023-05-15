@@ -1,10 +1,10 @@
 const { DataTypes } = require("sequelize");
 const { database } = require("../database/connection");
 
-// Aqui se define el modelo User
+// Aqui se define el modelo Product 
 
-const User = database.define(
-  "User",
+const Product = database.define(
+  "Product",
   {
     id: {
       type: DataTypes.UUID,
@@ -15,26 +15,28 @@ const User = database.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    email: {
-      type: DataTypes.STRING,
-      unique: true,
-      allowNull: false,
-    },
-    password: {
+    description: {
       type: DataTypes.STRING,
       allowNull: false,
     },
-    role: {
+    brand: {
       type: DataTypes.STRING,
-      defaultValue: "USER_ROLE",
       allowNull: false,
     },
-    active: {
-      type: DataTypes.BOOLEAN,
-      defaultValue: true,
+    price: {
+      type: DataTypes.FLOAT,
+      allowNull: false,
     },
-    google: {
-      type: DataTypes.BOOLEAN,
+    category: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    quantity: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    image: {
+      type: DataTypes.STRING,
       defaultValue: false,
     },
   },
@@ -42,5 +44,5 @@ const User = database.define(
 );
 
 module.exports = {
-  User,
+  Product,
 };
