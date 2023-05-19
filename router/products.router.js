@@ -7,7 +7,7 @@ const { getAllProducts, getProductsByName, filterProducts, getProductById } = re
 
 const products = Router();
 
-products.get("/products", get);
+products.get("/products");
 
 module.exports = {
   products
