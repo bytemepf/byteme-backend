@@ -12,6 +12,8 @@ router.use("/api/products", products);
 router.use("/api/admin", admin);
 router.use("/api/user", user);
 router.use("/api/checkout", stripe)
+// router.get("/api/internal");
+
 module.exports = {
   router,
 };
