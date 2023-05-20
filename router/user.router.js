@@ -5,7 +5,7 @@ const {infoUser} = require("../controllers/user/account.controller")
 const user = Router();
 
 user.get("/", account);
-user.get("/Info",infoUser)
+user.get("/Info",infoUser) //user/Info
 
 module.exports = {
   user,
