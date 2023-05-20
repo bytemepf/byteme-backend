@@ -1,3 +1,4 @@
+
 const {User} =require("../../models/User.model")
 
 const account = (req, res) => {
@@ -15,4 +16,4 @@ const infoUser =async (req,res)=>{
 
 module.exports = {
   account,infoUser
-};
+

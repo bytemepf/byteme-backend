@@ -1,6 +1,8 @@
 const { DataTypes } = require("sequelize");
 const { database } = require("../database/connection");
 
+// Aqui se define el modelo Product 
+
 const Product = database.define(
   "Product",
   {
