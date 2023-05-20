@@ -1,6 +1,6 @@
 const nodemailer = require('nodemailer');
 
-sendEmail = async ()=>{
+ const sendEmail = async ()=>{
 
 //constante de configuracion del correo y puerto del que se enviaran los correos 
     
@@ -30,4 +30,6 @@ sendEmail = async ()=>{
      console.log(info)
 }
 
-sendEmail();
+module.exports = {
+    sendEmail,
+}
