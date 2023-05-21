@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+require('dotenv').config();
 
  const sendEmail = async ()=>{
 
@@ -9,8 +10,8 @@ const nodemailer = require('nodemailer');
         port: 587,
     // Se cambiara esta parte por variables de entorno (.env)
         auth: {
-            user: 'bytemepf@gmail.com',
-            pass: 'watdzbhmsmnxcenp'
+            user: `${process.env.EMAIL_ADDRESS}`,
+            pass: `${process.env.EMAIL_PASSWORD}`
         }
     }
 
@@ -19,7 +20,7 @@ const nodemailer = require('nodemailer');
         from: 'bytemepf@gmail.com',
         //Se cambiara por el correo al cual se debera enviar el message
         to: 'cdvallesb7@gmail.com',
-        subject: 'Test one',
+        subject: 'Test two',
         text: 'relevant info about email of shopping',
     }
 
@@ -29,6 +30,8 @@ const nodemailer = require('nodemailer');
 
      console.log(info)
 }
+
+sendEmail();
 
 module.exports = {
     sendEmail,
