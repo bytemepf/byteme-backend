@@ -16,7 +16,8 @@ const paymentStripe = async (req, res, next) => {
       source: tokenId,
       amount: calculateTotalAmount(quantity,price),
       currency: 'usd',
-     payment_method: 'pm_card_visa',
+     //payment_method: 'pm_card_visa',
+     confirm: true
     },
     (stripeErr, stripeRes) => {
       if (stripeErr) {
