@@ -11,12 +11,15 @@ const calculateTotalAmount = (quantity,price) => {
 const paymentStripe = async (req, res, next) => {
   const { tokenId, quantity,price} = req.body;
 
-  await stripe.charges.create(
+  await stripe.paymentIntents.create(
     {
       source: tokenId,
       amount: calculateTotalAmount(quantity,price),
-      currency: 'usd',
-     payment_method: 'pm_card_visa',
+      currency: 'USD',
+     //payment_method: 'pm_card_visa',
+     automatic_payment_methods: {
+      enabled: true
+    },
     },
     (stripeErr, stripeRes) => {
       if (stripeErr) {
