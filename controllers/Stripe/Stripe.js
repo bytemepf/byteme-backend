@@ -3,17 +3,17 @@
 const stripe = require('stripe')('sk_test_51N6grFDH4FxWaNHv6qZoPtl55F3AApQtxzDxDI88jr4n9TEI0G5bdeUmkUiZlu6vUesJgFAYbEMXbO9t7hXL5ynX00wD7WhVow');
 
 const calculateTotalAmount = (quantity,price) => {
-  const pricePerItem = price; // Precio por unidad en centavos
+  const pricePerItem = price * 100
   const totalAmount = quantity * pricePerItem;
   return totalAmount;
 };
 
 const paymentStripe = async (req, res, next) => {
-  const { tokenId, quantity,price} = req.body;
+  const { quantity,price} = req.body;
 
   await stripe.paymentIntents.create(
     {
-      source: tokenId,
+     // source: tokenId,
       amount: calculateTotalAmount(quantity,price),
       currency: 'USD',
      //payment_method: 'pm_card_visa',
