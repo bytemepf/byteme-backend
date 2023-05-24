@@ -8,10 +8,28 @@ const calculateTotalAmount = (quantity,price) => {
   return totalAmount;
 };
 
-const paymentStripe = async (req, res, next) => {
-  const { tokenId, quantity,price} = req.body;
+const paymentStripe = async (req, res) => {
+  const { id, quantity,price} = req.body;
+  try {
+    const payment = await stripe.paymentIntents.create({
+      amount: calculateTotalAmount(quantity,price),
+      currency: "USD",
+      payment_method: id,
+      confirm: true, //confirm the payment at the same time
+    });
 
-  await stripe.paymentIntents.create(
+    console.log(payment);
+
+    return res.status(200).json({ message: "Successful Payment" });
+  } catch (error) {
+    console.log(error);
+    return res.json({ message: error.raw.message });
+  }
+}
+
+
+
+ /*  await stripe.paymentIntents.create(
     {
       source: tokenId,
       amount: calculateTotalAmount(quantity,price),
@@ -28,6 +46,6 @@ const paymentStripe = async (req, res, next) => {
         res.status(200).json(stripeRes)
       }
     }
-  )}
+  )} */
 
 module.exports = paymentStripe
