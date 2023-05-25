@@ -1,4 +1,4 @@
-const { DataTypes } = require("sequelize");
+const { DataTypes, STRING } = require("sequelize");
 const { database } = require("../database/connection");
 
 const Order = database.define(
@@ -15,9 +15,25 @@ const Order = database.define(
         allowNull: false,
         defaultValue: "processed",
       },
-      email: {
+      detail:{
         type: DataTypes.STRING,
         allowNull: true,
+      },
+      adress: {
+        type: DataTypes.STRING,
+        allowNull: true,
+      },
+      phone:{
+        type: DataTypes.FLOAT,
+        allowNull:false,
+      },
+      city:{
+        type:DataTypes.STRING,
+        allowNull:true,
+      },
+      country:{
+        type:DataTypes.STRING,
+        allowNull:true,
       },
     name: {
       type: DataTypes.STRING,
