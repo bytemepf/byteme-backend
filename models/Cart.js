@@ -19,12 +19,7 @@ const Cart = database.define(
     total:{
         type: DataTypes.FLOAT,
         default:0
-      },
-   //   totalP:{
-   //     type: DataTypes.FLOAT,
-   //     default:0,
-   //     allowNull: true,
-   //   }
+      },//
 
   },
   { timestamps: false }
