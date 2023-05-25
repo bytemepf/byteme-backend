@@ -31,7 +31,7 @@ const User = database.define(
     },
     active: {
       type: DataTypes.BOOLEAN,
-      defaultValue: true,
+      defaultValue: true,   
     },
     google: {
       type: DataTypes.BOOLEAN,

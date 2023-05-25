@@ -1,42 +1,31 @@
-// Importaciones de terceros (NPM)
-// Esta bibliteca permite encriptar y desencriptar cadenas (string)
-const bcryptjs = require("bcryptjs");
-
-// Importa el modelo User para interactuar con la tabla User de la base de datos 
 const { User } = require("../../models");
-// Importa el metodo que se encarga de generar los JWT
-const { generateJWT } = require("../../helpers/generateJWT");
 
-// desestructura las propiedades enviadas por el usuario
 const registerUser = async (req, res) => {
+  try {
+    const { name, email, picture } = req.body;
 
-  let { name, email, password, admin } = req.body;
+    // Verifica si el usuario ya existe en la base de datos
+    const existingUser = await User.findOne({ where: { email } });
+    if (existingUser) {
+      return res.status(400).json({ error: "El usuario ya está registrado" });
+    }
 
-  // Esto indica a cantidad de vueltas necesarias para encriptar la contraseña
-  const salt = bcryptjs.genSaltSync();
+    // Crea el usuario en la base de datos
+    const newUser = await User.create({ name, email, picture });
 
-  // Esta funcion encripta la contraseña
-  password = bcryptjs.hashSync(password.toString(), salt);
-
-  const user = User.build({ name, email, password });
-
-  console.log(admin)
-  if (admin === "yes") {
-    user.role = "ADMIN_ROLE"
+    // Envía una respuesta exitosa con los detalles del usuario registrado
+    res.status(200).json({
+      id: newUser.id,
+      name: newUser.name,
+      email: newUser.email,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ error: "Error al registrar el usuario" });
   }
-
-  await user.save()
-
-  const { id, role } = user.dataValues
-
-  const token = await generateJWT(id)
-
-  console.log(token)
-
-  res.status(200).json({ id, name, email, role, token });
+};
 
 
-}
 // Aqui se crea el usuario con privilegios de administrador y se inserta a la base de datos con la contraseña encriptada
 
 // Se genera un JWT para regresarselo al usuario recien registrado
