@@ -24,7 +24,7 @@ const Order = database.define(
         allowNull: true,
       },
       phone:{
-        type: DataTypes.NUMBER,
+        type: DataTypes.FLOAT,
         allowNull:false,
       },
       city:{
