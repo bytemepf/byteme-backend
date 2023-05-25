@@ -1,0 +1,30 @@
+// Set your secret key. Remember to switch to your live secret key in production.
+// See your keys here: https://dashboard.stripe.com/apikeys
+const stripe = require('stripe')('sk_test_51N6grFDH4FxWaNHv6qZoPtl55F3AApQtxzDxDI88jr4n9TEI0G5bdeUmkUiZlu6vUesJgFAYbEMXbO9t7hXL5ynX00wD7WhVow');
+
+const calculateTotalAmount = (quantity,price) => {
+  const pricePerItem = price; // Precio por unidad en centavos
+  const totalAmount = quantity * pricePerItem;
+  return totalAmount;
+};
+
+const paymentStripe = async (req, res, next) => {
+  const { tokenId, quantity,price} = req.body;
+
+  await stripe.charges.create(
+    {
+      source: tokenId,
+      amount: calculateTotalAmount(quantity,price),
+      currency: 'usd',
+     payment_method: 'pm_card_visa',
+    },
+    (stripeErr, stripeRes) => {
+      if (stripeErr) {
+        next(new Error('Error in paymentStripe' + stripeErr))
+      } else {
+        res.status(200).json(stripeRes)
+      }
+    }
+  )}
+
+module.exports = paymentStripe

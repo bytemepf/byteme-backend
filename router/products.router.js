@@ -1,8 +1,9 @@
+// Importaciones de terceros (NPM)
 const { Router } = require("express");
-const { getAllProducts } = require("../controllers/products/getAllProducts.controller");
-const { getProductById } = require("../controllers/products/getProductById.controller");
-const { getProductsByName } = require("../controllers/products/getProductsByName.controller");
-const { filterProducts } = require("../controllers/products/filterProducts.controller");
+
+// Importaciones locales (Controladores)
+const { getAllProducts, getProductsByName, filterProducts, getProductById } = require("../controllers");
+
 
 const products = Router();
 
