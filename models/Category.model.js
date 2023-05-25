@@ -15,6 +15,22 @@ const Category = database.define(
   },
   { timestamps: false }
 );
+//module.exports = (sequelize) => {
+//  sequelize.define(
+//  "Category",
+//  {
+//    id: {
+//      type: DataTypes.UUID,
+//      primaryKey: true,
+//    },
+//    name: {
+//      type: DataTypes.STRING,
+//      allowNull: false,
+//    },
+//  },
+//  { timestamps: false }
+//);}
+
 
 module.exports = {
   Category,

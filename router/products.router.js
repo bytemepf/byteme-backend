@@ -10,7 +10,6 @@ products.get("/", getAllProducts);
 products.get("/search", getProductsByName);
 products.get("/filter", filterProducts)
 products.get("/:id", getProductById)
-
 module.exports = {
   products
 };
