@@ -12,27 +12,10 @@ const { registerUser, loginUser } = require("../controllers");
 const auth = Router();
 
 auth.post(
-  "/register",
-  [
-    check("name", "El nombre es obligatorio").not().isEmpty(),
-    check("email").custom(isEmail),
-    check("password", "El password debe tener mas de 6 letras").isLength({
-      min: 6,
-    }),
-    validateFields,
-  ],
-  registerUser
-);
+  "/register", registerUser );
 
 auth.post(
-  "/login",
-  [
-    check("email", "El correo es obligatorio").isEmail(),
-    check("password", "La contraseña es obligatoria").not().isEmpty(),
-    validateFields,
-  ],
-  loginUser
-);
+  "/login", loginUser);
 
 module.exports = {
   auth,
