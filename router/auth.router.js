@@ -12,10 +12,12 @@ const { registerUser, loginUser } = require("../controllers");
 const auth = Router();
 
 auth.post(
+
   "/register", registerUser );
 
 auth.post(
   "/login", loginUser);
+
 
 module.exports = {
   auth,

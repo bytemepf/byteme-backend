@@ -1,6 +1,7 @@
 const { User } = require("../../models");
 
 const registerUser = async (req, res) => {
+
   try {
     const { email, name, picture } = req.body;
 
@@ -22,6 +23,7 @@ const registerUser = async (req, res) => {
   } catch (error) {
     console.log(error);
     res.status(500).json({ error: "Error al registrar el usuario" });
+
   }
 };
 
