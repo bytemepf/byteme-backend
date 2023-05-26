@@ -16,9 +16,9 @@ const registerUser = async (req, res) => {
   const salt = bcryptjs.genSaltSync();
 
   // Esta funcion encripta la contraseña
-  password = bcryptjs.hashSync(password.toString(), salt);
+ // password = bcryptjs.hashSync(password.toString(), salt);
 
-  const user = User.build({ name, email, password });
+  const user = User.build({ name, email,/* password*/ });
 
   console.log(admin)
   if (admin === "yes") {
