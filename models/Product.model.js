@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { database } = require("../database/connection");
+const { database } = require("../database/connection.js");
 
 // Aqui se define el modelo Product 
 

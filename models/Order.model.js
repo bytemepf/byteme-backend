@@ -1,5 +1,5 @@
 const { DataTypes } = require("sequelize");
-const { database } = require("../database/connection");
+const { database } = require("../database/connection.js");
 
 const Order = database.define(
   "Order",
@@ -31,6 +31,28 @@ const Order = database.define(
         type: DataTypes.FLOAT,
         allowNull: true,
       },
+      country: {
+        type: DataTypes.STRING,
+        defaultValue: ""
+    },
+    province: {
+        type: DataTypes.STRING,
+        defaultValue: ""
+    },
+    city: {
+        type: DataTypes.STRING,
+        defaultValue: ""
+    },
+    adress: {
+        type: DataTypes.STRING,
+        defaultValue: ""
+    },
+  
+    phoneNumber: {
+        type: DataTypes.STRING,
+        defaultValue: ''
+    },
+
   },
   { timestamps: false }
 );
