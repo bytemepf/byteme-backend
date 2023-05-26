@@ -26,9 +26,9 @@ const loginUser = async (req, res) => {
    // const validPassword = bcryptjs.compareSync(password.toString(), user.password);
 
     // Si validPassword es false, responde con el siguiente mensaje
-    if (!validPassword) {
-      return res.status(400).json({ message: "Contraseña incorrecta" });
-    }
+   // if (!validPassword) {
+   //   return res.status(400).json({ message: "Contraseña incorrecta" });
+   // }
 
     // Si la contraseñas coinciden, el siguiente paso es verficar si el usuario esta activo con esta condición
     // Si el usuario esta inactivo responde con el siguiente mensaje
