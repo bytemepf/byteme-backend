@@ -23,7 +23,7 @@ const loginUser = async (req, res) => {
     }
 
     // Esta instrucción compara la contraseña encriptada de la base de datos con la que introdujo el usuario, si coinciden devuelve true, de lo contrario false
-    const validPassword = bcryptjs.compareSync(password.toString(), user.password);
+   // const validPassword = bcryptjs.compareSync(password.toString(), user.password);
 
     // Si validPassword es false, responde con el siguiente mensaje
     if (!validPassword) {

@@ -18,12 +18,15 @@ const Cart = database.define(
       allowNull: false,},
     total:{
         type: DataTypes.FLOAT,
-        default:0
       },//
-
+      quantityP: {
+        type: DataTypes.FLOAT,
+        defaultValue: 1,
+        allowNull: false,
+      }
   },
   { timestamps: false }
-);
+); 
 
 module.exports = {
   Cart,

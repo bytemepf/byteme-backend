@@ -20,7 +20,8 @@ const CartId = async (req,res)=>{
     }else{
         res.status(200).json("Carrito vacio")
     }
-    }catch{
+    }catch(error){
+        console.log(error)
         res.status(400).send("Not found CardId")
     }
 }
