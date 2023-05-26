@@ -2,7 +2,7 @@ const { User } = require("../../models");
 
 const registerUser = async (req, res) => {
   try {
-    const { name, email, picture } = req.body;
+    const { email, name, picture } = req.body;
 
     // Verifica si el usuario ya existe en la base de datos
     const existingUser = await User.findOne({ where: { email } });
@@ -11,7 +11,7 @@ const registerUser = async (req, res) => {
     }
 
     // Crea el usuario en la base de datos
-    const newUser = await User.create({ name, email, picture });
+    const newUser = await User.create({ email, name, picture });
 
     // Envía una respuesta exitosa con los detalles del usuario registrado
     res.status(200).json({
@@ -24,7 +24,6 @@ const registerUser = async (req, res) => {
     res.status(500).json({ error: "Error al registrar el usuario" });
   }
 };
-
 
 // Aqui se crea el usuario con privilegios de administrador y se inserta a la base de datos con la contraseña encriptada
 
