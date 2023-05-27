@@ -23,7 +23,6 @@ auth.post(
   ],
   registerUser
 );
-
 auth.post(
   "/login",
   [
