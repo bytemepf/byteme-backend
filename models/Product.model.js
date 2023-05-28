@@ -37,7 +37,7 @@ const Product = database.define(
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: false,
+      
     },
   },
   { timestamps: false }

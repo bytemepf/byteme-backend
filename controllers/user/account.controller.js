@@ -5,7 +5,7 @@ const account = (req, res) => {
   res.status(200).json({ daniel: 123 });
 };
 
-const infoUser =async (req,res)=>{
+const infoUser = async (req,res)=>{
   try{
     const users = await User.findAll()
     return res.json(users)
@@ -16,5 +16,4 @@ const infoUser =async (req,res)=>{
 
 module.exports = {
   account,infoUser
-
 }
