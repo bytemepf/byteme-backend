@@ -1,7 +1,7 @@
 // Este middleware verifica que venga una imagen o una url valida a cualquer imagen
 
 const validateImage = (req, res, next) => {
-    console.log(req.files);
+   // console.log(req.files);
     // Esta condición verifica que venga un archivo de imagen, si es falsa, se pasa a la siguiente condición
     if (req.files) {
         if (req.files.image) {

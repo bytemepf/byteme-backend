@@ -10,9 +10,9 @@ const { uploadImage } = require("../../helpers");
 const { Product } = require("../../models");
 
 const postProduct = async (req, res) => {
-  console.log(req.file)
+  //console.log(req.file)
   if (req.files?.image) {
-    console.log(req.files)
+   // console.log(req.files)
     const { secure_url } = await uploadImage(req.files.image.tempFilePath);
     const product = await Product.create({ ...req.body, image: secure_url });
     await fs.unlink(req.files.image.tempFilePath);
@@ -33,14 +33,14 @@ const postProduct = async (req, res) => {
       // Indica la ubicación de la imagen en el servidor
       // tempFilePath es un string con la ruta donde se ubica la imagen almacenada
       const { tempFilePath } = req.files.image
-      console.log(tempFilePath);
+    //  console.log(tempFilePath);
       // Sube la imagen a Cloudinary y recibe la url
       // el metodo uploadImage neceita conocer la ubicación de la imagen para proceder a subirla
       // por lo que se proporciona tempFilePath como argumento.
       // si la imagen se sube correctamente, el metodo devuelve un objeto con varias propiedades.
       // La propiedad secure_url es la url final de la imagen en cloudinary
       const { secure_url } = await uploadImage(tempFilePath);
-      console.log(secure_url);
+    //  console.log(secure_url);
       // Elimina la imagen de la carpeta temporal ubicada en el servidor
       await fs.unlink(tempFilePath);
       
@@ -48,13 +48,13 @@ const postProduct = async (req, res) => {
       image = secure_url
     }
     const product = await Product.create({ ...req.body, image });
-    console.log(product);
+   // console.log(product);
     // Guarda el producto en la base de datos y obtiene los datos guardados
     //const { dataValues } = await product.save()
     
     return res.status(200).json({ message: "Producto publicado correctamente", data: { ...product } });
   } catch (error) {
-    console.log(error.message)
+   // console.log(error.message)
     return res.status(500).json({ message: "Error en el servidor", error: error.message });
   }
 
