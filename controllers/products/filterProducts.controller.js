@@ -11,7 +11,7 @@ const filterProducts = async (req, res) => {
 
   // constantes que controlan el paginado. page es el numero de pagina y
   // limit es el numero de productos a mostrar por pagina
-  const { page = 1, limit = 10 } = req.query;
+  const { page = 1, limit = 12 } = req.query;
 
   try {
 
