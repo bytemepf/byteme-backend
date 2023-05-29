@@ -5,4 +5,5 @@ const { Sequelize } = require("sequelize");
 // process.env.DB_URL es una variable de entorno que esta en .env
 const database = new Sequelize(process.env.DB_URL, { logging: false });
 
+
 module.exports = { database };

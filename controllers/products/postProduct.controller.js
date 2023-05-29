@@ -10,6 +10,14 @@ const { uploadImage } = require("../../helpers");
 const { Product } = require("../../models");
 
 const postProduct = async (req, res) => {
+  console.log(req.file)
+  if (req.files?.image) {
+    console.log(req.files)
+    const { secure_url } = await uploadImage(req.files.image.tempFilePath);
+    const product = await Product.create({ ...req.body, image: secure_url });
+    await fs.unlink(req.files.image.tempFilePath);
+    return res.json(product);
+  }
 
   // El middleware validateImages crea la propiedad file en req.body
   // la función de esta propiedad es indicar si viene una archivo de imagen

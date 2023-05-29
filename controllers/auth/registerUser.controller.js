@@ -1,6 +1,6 @@
 // Importaciones de terceros (NPM)
 // Esta bibliteca permite encriptar y desencriptar cadenas (string)
-const bcryptjs = require("bcryptjs");
+//const bcryptjs = require("bcryptjs");
 
 // Importa el modelo User para interactuar con la tabla User de la base de datos 
 const { User } = require("../../models");
@@ -9,16 +9,12 @@ const { generateJWT } = require("../../helpers/generateJWT");
 
 // desestructura las propiedades enviadas por el usuario
 const registerUser = async (req, res) => {
+  let { email, name, admin } = req.body;
+  //const salt = bcryptjs.genSaltSync();
 
-  let { name, email, password, admin } = req.body;
+ // password = bcryptjs.hashSync(password.toString(), salt);
 
-  // Esto indica a cantidad de vueltas necesarias para encriptar la contraseña
-  const salt = bcryptjs.genSaltSync();
-
-  // Esta funcion encripta la contraseña
-  password = bcryptjs.hashSync(password.toString(), salt);
-
-  const user = User.build({ name, email, password });
+  const user = User.build({ email, name,/* password*/ });
 
   console.log(admin)
   if (admin === "yes") {
@@ -31,11 +27,7 @@ const registerUser = async (req, res) => {
 
   const token = await generateJWT(id)
 
-  console.log(token)
-
-  res.status(200).json({ id, name, email, role, token });
-
-
+  res.status(200).json({ id, email, name, role, token });
 }
 // Aqui se crea el usuario con privilegios de administrador y se inserta a la base de datos con la contraseña encriptada
 
