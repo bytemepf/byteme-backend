@@ -3,18 +3,19 @@ const {postorderuser}=require("../controllers/order/postorder.controller")
 const {getOrdersById} = require("../controllers/order/orderId.controllers")
 const {getAll} = require("../controllers/order/getallorder")
 const {getOrdersByIduser} = require("../controllers/order/allorderuser")
+const {deleteorder} = require('../controllers/order/deleteorder')
 const order = Router();
 
 //Todas las órdenes
-order.get("/orders", getAll);
+order.get("/", getAll);
 //Todas las órdenes de un usuario
-order.get("/:userId/orders",getOrdersById );
+order.get("/:userId", getOrdersById );
 //crear orden por usuario
 order.post("/:userId",postorderuser)
 //Traer una orden en particular
-order.get("/order/:orderId",getOrdersByIduser );
+order.get("/:orderId",getOrdersByIduser );
 //Modificar una orden en particular
-order.put("/order/:orderId", );
+order.delete("/:userId", deleteorder);
 
 module.exports = {
     order
