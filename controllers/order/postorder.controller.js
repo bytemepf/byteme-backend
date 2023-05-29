@@ -1,33 +1,45 @@
 const {Order} = require("../../models/Order.model")
 const {Cart} = require("../../models/Cart")
-const { Product } = require("../../models/Product.model");
 const {User}=require("../../models/User.model")
 
 const postorderuser = async (req,res)=>{
-    try {
-      const {adress,phone,city,country}=req.body
-     const Cart_id = req.params
-     const user_id = req.params
-     const nameuser= await User.findByPk(user_id)
-     console.log(nameuser)
+   try {
+      const {adress,phone,city,country,Cart_id}=req.body
+    // const Cart_id = req.params
+     const userId = req.params.userId
+     const nameuser= await User.findByPk(userId)
+     console.log(nameuser.name)
      const carroaorden= await Cart.findByPk(Cart_id)
-     console.log(carroaorden)
+     const cartALL = await Cart.findAll({where:{user:userId}})
+     const nombresProductos = [];
+  
+  for (let i = 0; i < cartALL.length; i++) {
+    nombresProductos.push(cartALL[i].productname);
+  }
+    var sumaTotalC = 0;  
+  for (let i = 0; i < cartALL.length; i++) {
+    sumaTotalC += cartALL[i].totalC;
+  }
+   //  const carduserall= await cartALL.length
+   //  console.log(carduserall)
      const neworder= await Order.create(
       {
-        detail:Cart_id.productid,
+        detail:nombresProductos.join(', '),
         adress: adress,
         phone:phone,
         city: city,
         country:country,
         name:nameuser.name,
-        user_id:user_id,
-        total:Cart_id.total
+        userId:userId,
+        total:sumaTotalC
       }
      )
      res.status(200).json(neworder)  
-      } catch  {
+      } catch (error) {
+       console.log(error)
+       
         res.status(400).send("not found 'post orders'")
-      }
+     }
 }
 module.exports = {
   postorderuser
