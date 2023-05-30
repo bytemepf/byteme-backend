@@ -10,9 +10,9 @@ const order = Router();
 //Todas las órdenes
 order.get("/", getAll);
 //Todas las órdenes de un usuario
-order.get("/:userId",validateJWT, getOrdersById );
+order.get("/:userId", getOrdersById );
 //crear orden por usuario
-order.post("/:userId",validateJWT,postorderuser)
+order.post("/:userId",postorderuser)
 //Traer una orden en particular
 order.get("/:orderId",getOrdersByIduser );
 //Modificar una orden en particular
