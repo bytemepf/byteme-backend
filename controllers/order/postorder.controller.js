@@ -4,6 +4,7 @@ const {User}=require("../../models/User.model")
 
 const postorderuser = async (req,res)=>{
    try {
+    console.log(req.user)
       const {adress,phone,city,country,Cart_id}=req.body
     // const Cart_id = req.params
      const userId = req.params.userId

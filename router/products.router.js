@@ -2,10 +2,11 @@
 const { Router } = require("express");
 // Importaciones locales (Controladores)
 const { getAllProducts, getProductsByName, filterProducts, getProductById } = require("../controllers");
+const {validateJWT} =require("../middlewares/validateJWT")
 
 const products = Router();
 
-products.get("/", getAllProducts);
+products.get("/",validateJWT, getAllProducts);
 products.get("/search", getProductsByName);
 products.get("/filter", filterProducts)
 products.get("/:id", getProductById)

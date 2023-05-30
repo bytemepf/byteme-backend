@@ -3,13 +3,17 @@ const { auth } = require("./auth.router");
 const { products } = require("./products.router");
 const { admin } = require("./admin.router");
 const { user } = require("./user.router");
+const {nodemailerPay} = require("../middlewares/nodemailer")
 
 const {cart} = require("./cart.router");
 const {order} =require("./order.router")
 const {stripe} = require("./stripe")
 const {paid} = require("./paid.router")
 const router = Router();
-
+//router.use("/", async(req,res)=>{
+//const resp = await nodemailerPay("cheyinho25@gmail.com",) 
+// return res.json(resp)
+//});
 router.use("/api/auth", auth);
 router.use("/api/products", products);
 router.use("/api/admin", admin);
