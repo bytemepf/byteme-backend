@@ -6,10 +6,10 @@ const {validateJWT} =require("../middlewares/validateJWT")
 
 const products = Router();
 
-products.get("/",validateJWT, getAllProducts);
+products.get("/",/*validateJWT,*/ getAllProducts);
 products.get("/search", getProductsByName);
 products.get("/filter", filterProducts)
-products.get("/:id",validateJWT, getProductById)
+products.get("/:id",/*validateJWT*/ getProductById)
 products.get("/products");
 
 module.exports = {
