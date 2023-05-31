@@ -14,6 +14,8 @@ const calculateTotalAmount = (quantity,price) => {
 const paymentStripe = async (req, res, next) => {
   const { email, quantity, price} = req.body;
 
+  console.log(email);
+
   await stripe.paymentIntents.create(
     {
      // source: tokenId,
