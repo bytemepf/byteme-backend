@@ -15,7 +15,7 @@ const Order = database.define(
         defaultValue: "processed",
       },
       detail:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1000),
         allowNull: true,
       },
       adress: {
