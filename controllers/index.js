@@ -32,6 +32,9 @@ const { registerUser } = require("./auth/registerUser.controller");
 // Importaciones de la carpeta user
 const { logicalDeletion } = require("./user/logicalDeletion.controller");
 
+//Importaciones de la carpeta nodemailer
+const {nodemailerController} = require('./nodemailer/nodemailer.controller')
+
 // Exportacion de todos los rchivos
 module.exports = {
     logicalDeletionProducts,
@@ -44,6 +47,7 @@ module.exports = {
     updateProduct,
     loginUser,
     registerUser,
-    logicalDeletion
+    logicalDeletion,
+    nodemailerController
 }
 

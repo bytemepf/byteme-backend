@@ -7,18 +7,21 @@ const { user } = require("./user.router");
 const {cart} = require("./cart.router");
 const {order} =require("./order.router")
 const {stripe} = require("./stripe")
-const {paid} = require("./paid.router")
+const {paid} = require("./paid.router");
+const { nodemailer } = require("./nodemailer.router");
 const router = Router();
 
 router.use("/api/auth", auth);
 router.use("/api/products", products);
 router.use("/api/admin", admin);
 router.use("/api/user", user);
-router.use("/api/cart",cart)
-router.use("/api/order",order)
-router.use("/api/checkout", stripe)
-// router.get("/api/internal");
-router.use("/api/paid",paid)
+router.use("/api/cart",cart);
+router.use("/api/order",order);
+router.use("/api/checkout", stripe);
+router.use("/api/paid",paid);
+// router.use("/api/nodemailer", nodemailer)
+
+
 module.exports = {
   router,
 };

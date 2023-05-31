@@ -1,7 +1,7 @@
 const nodemailer =  require("nodemailer");
 
 
-async function nodemailerPay(recipient, mensaje, total) {
+async function nodemailerController(email, total) {
 
     const transporter = nodemailer.createTransport({
         host: 'smtp.gmail.com',
@@ -13,11 +13,10 @@ async function nodemailerPay(recipient, mensaje, total) {
     });
 
     await transporter.sendMail({
-      from: 'bytemepf@gmail.com',
-      to: recipient,
-      subject: `Orden N°: -${id}- ✔`, 
-      text: mensaje, 
-      html: `<center>
+        from: 'bytemepf@gmail.com',
+        to: email,
+        subject: `Compraste en Byte Me!`, 
+        html: `<center>
 |              <div width=300px style="font-size: 2rem; background-color: #dfced5; height: 65rem; width: 83rem;"> 
                 <br>
                 <h3>Hola ${recipient} </h3> 
@@ -25,24 +24,22 @@ async function nodemailerPay(recipient, mensaje, total) {
                 <br>
                 <h3>Tu compra</h3>
                 <table>
-                  <tr>
+                    <tr>
                     <th style= "text-align: center">Nombre</th>
                     <th style= "text-align: center">Cantidad</th>
                     <th style= "text-align: center">Precio</th>
                     <th style= "text-align: center">Sub total</th>
-                  </tr>  
-                  ${mensaje}
+                    </tr>  
+                
                 </table>
                 <h2>$${total}</h2>
                 <br>
                 <label>Gracias, Equipo BYTE ME</label>
-              </div>
-            </center>`
+            </div>
+        </center>`
     });
-  }
+    }
 
 
 
-  module.exports = {
-    nodemailerPay,
-  }
+module.exports = {nodemailerController}
