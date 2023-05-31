@@ -11,22 +11,22 @@ const postorderuser = async (req,res)=>{
      const nameuser= await User.findOne({where:{email:userId}})
      console.log(nameuser.name)
      console.log("________")
-  //   const nameep=[
-  //    {
-  //      id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
-  //      name: 'Grabadora de voz digital',
-  //      description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
-  //      brand: 'Olympus',
-  //      price: 79.99
-  //    },
-  //    {
-  //      id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
-  //      name: 'Grabadora de voz digital',
-  //      description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
-  //      brand: 'Olympus',
-  //      price: 79.99
-  //    }
-  //  ]
+     const nameep=[
+      {
+        id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
+        name: 'Grabadora de voz digital',
+        description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
+        brand: 'Olympus',
+        price: 79.99
+      },
+      {
+        id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
+        name: 'Grabadora de voz digital',
+        description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
+        brand: 'Olympus',
+        price: 79.99
+      }
+    ]
   //   const cartALL = await Cart.findAll({where:{user:userId}})
     //const Namep= JSON.parse([productC])
   //const idP = productC.map((producto) => producto.id);
@@ -37,12 +37,12 @@ const postorderuser = async (req,res)=>{
  // }
  console.log(productC)
  var sumaname = [];  
-  for (let i = 0; i < productC.length; i++) {
-    sumaname.push(productC[i].name);
+  for (let i = 0; i < nameep.length; i++) {
+    sumaname.push(nameep[i].name);
   }
     var sumaTotalC = 0;  
-  for (let i = 0; i < productC.length; i++) {
-    sumaTotalC += productC[i].price;
+  for (let i = 0; i < nameep.length; i++) {
+    sumaTotalC += nameep[i].price;
   }
    //  const carduserall= await cartALL.length
    //  console.log(carduserall)
