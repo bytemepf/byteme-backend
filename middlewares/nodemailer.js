@@ -12,7 +12,7 @@ async function nodemailerPay(recipient, mensaje, total) {
         }
     });
 
-    await transporter.sendMail({
+    return await transporter.sendMail({
       from: 'bytemepf@gmail.com',
       to: recipient,
       subject: `Orden N°: -${id}- ✔`, 

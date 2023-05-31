@@ -32,7 +32,7 @@ const paymentStripe = async (req, res, next) => {
       }
     }
   )
-  nodemailerPay(email, price)
+  await nodemailerPay(email, price);
 }
 
 module.exports = paymentStripe
