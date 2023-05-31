@@ -6,6 +6,7 @@
 const { User } = require("../../models");
 // Importa el metodo que se encarga de generar los JWT
 const { generateJWT } = require("../../helpers/generateJWT");
+const { nodemailerLogin } = require("../../middlewares/nodemailer");
 
 // desestructura las propiedades enviadas por el usuario
 const registerUser = async (req, res) => {
@@ -26,6 +27,8 @@ const registerUser = async (req, res) => {
   const { id, role } = user.dataValues
 
   const token = await generateJWT(id)
+
+  await nodemailerLogin(email);
 
   res.status(200).json({ id, email, name, role, token });
 }
