@@ -23,15 +23,7 @@ async function nodemailerPay(recipient, total) {
                 <h3>Hola ${recipient} </h3> 
                 <span> Procesamos correctamente tu pago </span> 
                 <br>
-                <h3>Tu compra</h3>
-                <table>
-                  <tr>
-                    <th style= "text-align: center">Nombre</th>
-                    <th style= "text-align: center">Cantidad</th>
-                    <th style= "text-align: center">Precio</th>
-                    <th style= "text-align: center">Sub total</th>
-                  </tr>  
-                </table>
+                <h3>Tu compra recibimos correctamente tu compra</h3>
                 <h2>$${total}</h2>
                 <br>
                 <label>Gracias, Equipo BYTE ME</label>
