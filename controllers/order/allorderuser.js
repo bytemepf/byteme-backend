@@ -2,23 +2,23 @@ const {Order} = require("../../models/Order.model")
 const {Cart} = require("../../models/Cart")
 
 
-const getOrdersByIduser = async (req, res) => {
-    const orderId = req.params.orderId;
-  
-    try {
-      const orders = await Order.findAll({ where: { orderId: orderId } });
-  
-      if (orders.length > 0) {
-        res.status(200).send(orders);
-      } else {
-        res.status(400).send("El usuario no tiene ordenes");
-      }
-    } catch (error) {
-      console.error(error);
-      res.status(500).send("Not found ");
+const getOrdersById = async (req, res) => {
+  try {
+    const orders = await Order.findOne({
+      order: [['createdAt', 'DESC']],
+    });
+    console.log(orders);
+    if (orders) {
+      res.status(200).json(orders);
+    } else {
+      res.status(401).send("No se encontraron órdenes para el usuario especificado");
     }
+  } catch (error) {
+    console.error(error);
+    res.status(400).send("Ocurrió un error al obtener las órdenes");
+  }
   };
 
 module.exports = {
-    getOrdersByIduser
+    getOrdersById
   };
