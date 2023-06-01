@@ -47,6 +47,11 @@ const Order = database.define(
         type: DataTypes.FLOAT,
         allowNull: true,
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
   },
   { timestamps: false }
 );
