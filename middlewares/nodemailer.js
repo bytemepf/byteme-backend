@@ -7,8 +7,8 @@ async function nodemailerPay(recipient, total) {
       host: 'smtp.gmail.com',
       port: 587,
       auth: {
-          user: `${process.env.EMAIL_ADDRESS}`,
-          pass: `${process.env.EMAIL_PASSWORD}`
+          user:` bytemepf@gmail.com`,//`${process.env.EMAIL_ADDRESS}`,
+          pass: `watdzbhmsmnxcenp`//`${process.env.EMAIL_PASSWORD}`
       }
   });
 
