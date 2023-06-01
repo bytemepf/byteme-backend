@@ -55,7 +55,7 @@ const Order = database.define(
   },
   { timestamps: false }
 );
-Order.drop()
+//Order.drop()
 
 module.exports = {
   Order,
