@@ -4,29 +4,27 @@ const {User}=require("../../models/User.model")
 
 const postorderuser = async (req,res)=>{
    try {
-      const {adress,phone,city,country,productC}=req.body
+      const {adress,phone,city,country,productC,name}=req.body
     // const Cart_id = req.params
      const userId = req.params.userId
     // console.log(req.params)
      const nameuser= await User.findOne({where:{email:userId}})
-     console.log(nameuser.name)
-     console.log("________")
-     const nameep=[
-      {
-        id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
-        name: 'Grabadora de voz digital',
-        description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
-        brand: 'Olympus',
-        price: 79.99
-      },
-      {
-        id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
-        name: 'Grabadora de voz digital',
-        description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
-        brand: 'Olympus',
-        price: 79.99
-      }
-    ]
+   //  const nameep=[
+   //   {
+   //     id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
+   //     name: 'Grabadora de voz digital',
+   //     description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
+   //     brand: 'Olympus',
+   //     price: 79.99
+   //   },
+   //   {
+   //     id: '8200dd15-186b-4fd0-a92e-af8be2d9c08f',
+   //     name: 'Grabadora de voz digital',
+   //     description: 'Grabadora portátil de voz digital con amplio almacenamiento y alta calidad de grabación.',
+   //     brand: 'Olympus',
+   //     price: 79.99
+   //   }
+   // ]
   //   const cartALL = await Cart.findAll({where:{user:userId}})
     //const Namep= JSON.parse([productC])
   //const idP = productC.map((producto) => producto.id);
@@ -35,14 +33,15 @@ const postorderuser = async (req,res)=>{
  // for (let i = 0; i < cartALL.length; i++) {
  //   nombresProductos.push(cartALL[i].productname);
  // }
- console.log(productC)
+ //console.log(productC)
  var sumaname = [];  
-  for (let i = 0; i < nameep.length; i++) {
-    sumaname.push(nameep[i].name);
+  for (let i = 0; i < productC.length; i++) {
+    sumaname.push(productC[i].name);
+    console.log(productC[1])
   }
     var sumaTotalC = 0;  
-  for (let i = 0; i < nameep.length; i++) {
-    sumaTotalC += nameep[i].price;
+  for (let i = 0; i < productC.length; i++) {
+    sumaTotalC += productC[i].price;
   }
    //  const carduserall= await cartALL.length
    //  console.log(carduserall)
@@ -53,7 +52,7 @@ const postorderuser = async (req,res)=>{
         phone:phone,
         city: city,
         country:country,
-        name:nameuser.name,
+        name:name,
         userId:userId,
         total:sumaTotalC
       }
