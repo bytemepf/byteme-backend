@@ -12,7 +12,7 @@ order.get("/:userId/orders",getOrdersById );
 //crear orden por usuario
 order.post("/:userId",postorderuser)
 //Traer una orden en particular
-order.get("/order/:orderId",getOrdersByIduser );
+order.get("/pagar",getOrdersByIduser );
 //Modificar una orden en particular
 order.put("/order/:orderId", );
 
