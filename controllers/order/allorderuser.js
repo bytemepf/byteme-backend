@@ -21,5 +21,5 @@ const getOrdersByIduser = async (req, res) => {
   };
 
 module.exports = {
-    getOrdersById
+  getOrdersByIduser
   };
