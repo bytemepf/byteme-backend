@@ -20,10 +20,10 @@ const User = database.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    // password: {
-    //   type: DataTypes.STRING,
-    //   allowNull: true,
-    // },
+ //   password: {
+ //     type: DataTypes.STRING,
+ //     allowNull: true,
+ //   },
     role: {
       type: DataTypes.STRING,
       defaultValue: "USER_ROLE",
