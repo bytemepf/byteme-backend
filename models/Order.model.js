@@ -50,6 +50,7 @@ const Order = database.define(
   },
   { timestamps: false }
 );
+Order.drop()
 
 module.exports = {
   Order,
