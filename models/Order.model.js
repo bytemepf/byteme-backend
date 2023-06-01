@@ -5,10 +5,9 @@ const Order = database.define(
   "Order",
   {
     order_id: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
-        primaryKey: true,
-        autoIncrement: true,
+      type: DataTypes.UUID,
+      defaultValue: DataTypes.UUIDV4,
+      primaryKey: true,
     },
     status: {
         type: DataTypes.ENUM([ "processed", "completed", "canceled"]),
@@ -39,9 +38,9 @@ const Order = database.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
-    user_id: {
-        type: DataTypes.INTEGER,
-        allowNull: true,
+    userId: {
+        type: DataTypes.STRING,
+        allowNull: false,
     },
     total: {
         type: DataTypes.FLOAT,
