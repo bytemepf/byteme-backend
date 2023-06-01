@@ -1,5 +1,6 @@
 const { json } = require('sequelize');
-const app = require('../../server/app')
+const app = require('../../server/app');
+
 
 app.put('/put', (req, res) =>{
     const id = req.params.id   //se requiere el id a modificar por params
@@ -10,8 +11,12 @@ app.put('/put', (req, res) =>{
     json.filter(e => {
         if(e.id === id) { // Si los ID coinciden ejecute...
             e.name = body.name;
+            e.description = body.description;
+            e.brand = body.brand;
             e.price = body.price;
             e.category = body.category;
+            e.quantity = body.quantity;
+            e.image = body.image
             //Estos son ejemplos de las propiedades que se les hara el PUT
         }
     });l
