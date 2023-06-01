@@ -13,10 +13,13 @@ const Cart = database.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    productname: {
+      type: DataTypes.STRING,
+      allowNull: false,},
     productid: {
       type: DataTypes.STRING,
       allowNull: false,},
-    total:{
+    totalC:{
         type: DataTypes.FLOAT,
       },//
       quantityP: {
@@ -27,6 +30,8 @@ const Cart = database.define(
   },
   { timestamps: false }
 ); 
+
+//Cart.drop();
 
 module.exports = {
   Cart,

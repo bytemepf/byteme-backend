@@ -11,7 +11,7 @@ const { generateJWT } = require("../../helpers/generateJWT");
 const loginUser = async (req, res) => {
 
   // desestructura las propiedades enviadas por el usuario
-  let { email, password } = req.body;
+  let { email } = req.body;
 
   try {
     // Esta instrucción busca un usuario en la base de datos que coincida con el email

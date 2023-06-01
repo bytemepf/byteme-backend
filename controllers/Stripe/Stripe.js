@@ -34,7 +34,8 @@ const paymentStripe = async (req, res, next) => {
     }
   )
   await nodemailerPay(email, price); 
-  }
+}
+
 module.exports = paymentStripe
 //const stripe = require('stripe')('sk_test_51N6grFDH4FxWaNHv6qZoPtl55F3AApQtxzDxDI88jr4n9TEI0G5bdeUmkUiZlu6vUesJgFAYbEMXbO9t7hXL5ynX00wD7WhVow');
 //
@@ -66,4 +67,6 @@ module.exports = paymentStripe
 //    }
 //  )}
 //
+
 //module.exports = paymentStripe
+

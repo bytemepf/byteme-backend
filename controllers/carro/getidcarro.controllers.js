@@ -12,7 +12,7 @@ const CartId = async (req,res)=>{
     const filteruser = orderuser.filter(userid=>userid.user==userId)
     if(filteruser){
         const sum = filteruser.reduce((accumulator, current) => {
-            return accumulator + current.total;
+            return accumulator + current.totalC;
           }, 0);
           const cartF = [filteruser,sum]
           console.log(cartF[1])

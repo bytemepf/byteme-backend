@@ -16,5 +16,4 @@ const infoUser =async (req,res)=>{
 
 module.exports = {
   account,infoUser
-
 }

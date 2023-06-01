@@ -4,11 +4,13 @@ const {Cart} = require("../../models/Cart")
 const getAll = async (req, res) => {
  
     try {
+      
         const allorder = await Order.findAll()
-        res.status(200).json(allorder)
 
+        res.status(200).json(allorder)
+        
     } catch {
-        res.status(400).sem("Not found getAll")
+        res.status(400).send("Not found getAll")
     }
   };
 
