@@ -33,11 +33,12 @@ const filtering = ({ products, name, category, brand, min, max, alphabetic, nume
       let x = a.name.toLowerCase(), y = b.name.toLowerCase();
       return x == y ? 0 : x > y ? 1 : -1;
     });
-
+    console.log(products, "111111");
     // filtra por orden alfabetico inverso
     if (alphabetic === "z-a") {
       products.reverse()
     }
+    console.log(products, "222222");
   }
 
   // filtra por precio de forma ascendente

@@ -17,6 +17,7 @@
 
 // Imporatciones de la carpeta products
 const { deleteProduct } = require("./products/deleteProduct.controller");
+const { logicalDeletionProducts } = require("./products/logicalDeletionProducts.controller");
 const { filterProducts } = require("./products/filterProducts.controller");
 const { getAllProducts } = require("./products/getAllProducts.controller");
 const { getProductById } = require("./products/getProductById.controller");
@@ -31,8 +32,12 @@ const { registerUser } = require("./auth/registerUser.controller");
 // Importaciones de la carpeta user
 const { logicalDeletion } = require("./user/logicalDeletion.controller");
 
+//Importaciones de la carpeta nodemailer
+const {nodemailerController} = require('./nodemailer/nodemailer.controller')
+
 // Exportacion de todos los rchivos
 module.exports = {
+    logicalDeletionProducts,
     deleteProduct,
     filterProducts,
     getAllProducts,
@@ -42,6 +47,7 @@ module.exports = {
     updateProduct,
     loginUser,
     registerUser,
-    logicalDeletion
+    logicalDeletion,
+    nodemailerController
 }
 

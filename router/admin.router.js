@@ -7,7 +7,7 @@ const { allowedCategories, isNumber } = require("../helpers");
 const { validateFields, validateImage, checkFile, validateJWT, isAdmin } = require("../middlewares");
 
 // Importaciones locales (Controladores)
-const { logicalDeletion, postProduct, updateProduct, deleteProduct } = require("../controllers");
+const { logicalDeletion, postProduct, updateProduct, deleteProduct, logicalDeletionProducts } = require("../controllers");
 
 const admin = Router();
 
@@ -39,11 +39,12 @@ admin.put("/products/:id",
   updateProduct
 );
 
-admin.delete("/products/:id", [
-  validateJWT,
-  isAdmin
-], deleteProduct)
+// admin.delete("/products/:id", [
+//   validateJWT,
+//   isAdmin
+// ], deleteProduct)
 
+admin.put("/products/active/:id", logicalDeletionProducts);
 
 module.exports = {
   admin,

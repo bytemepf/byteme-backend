@@ -12,16 +12,17 @@ async function nodemailerPay(recipient, total) {
         }
     });
 
-
     const mail = await transporter.sendMail({
       from: 'bytemepf@gmail.com',
       to: recipient,
       subject: `Compra ✔` ,
+
       html: `<center>
 |              <div width=300px style="font-size: 2rem; background-color: #dfced5; height: 65rem; width: 83rem;"> 
                 <br>
                 <h3>Hola ${recipient} </h3> 
                 <br>
+
                 <h3>Recibimos correctamente tu compra</h3>
                 <h2>$${total}</h2>
                 <br>
@@ -34,3 +35,4 @@ async function nodemailerPay(recipient, total) {
   module.exports = {
     nodemailerPay,
   }
+

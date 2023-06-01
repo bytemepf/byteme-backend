@@ -37,7 +37,11 @@ const Product = database.define(
     },
     image: {
       type: DataTypes.STRING,
-      defaultValue: false,
+      
+    },
+    active: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: true,
     },
   },
   { timestamps: false }

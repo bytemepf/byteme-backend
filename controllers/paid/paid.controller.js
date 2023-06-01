@@ -1,8 +1,10 @@
 const {Order} = require("../../models/Order.model")
 const { Product } = require("../../models/Product.model");
-const {Cart} = require("../../models/Cart")
+const {Cart} = require("../../models/Cart");
+// const { nodemailerPay } = require("../../middlewares/nodemailer");
 
 const Paid = async(req,res)=>{
+    console.log(req.user);
     try {
         const {productC}=req.body
 
@@ -30,6 +32,7 @@ const Paid = async(req,res)=>{
        //   } 
        //   
        // res.status(200).send(carro)
+
     } catch (error) {
         console.log(error)
         res.status(400).send("Not found Paid")
