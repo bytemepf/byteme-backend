@@ -1,4 +1,5 @@
-// Set your secret key. Remember to switch to your live secret key in production.
+// Set your secret key. Remember to switch to your live secret key in production
+
 // See your keys here: https://dashboard.stripe.com/apikeys
 const stripe = require('stripe')('sk_test_51N6grFDH4FxWaNHv6qZoPtl55F3AApQtxzDxDI88jr4n9TEI0G5bdeUmkUiZlu6vUesJgFAYbEMXbO9t7hXL5ynX00wD7WhVow');
 const { nodemailerPay } = require('../../middlewares/nodemailer');
@@ -66,4 +67,6 @@ module.exports = paymentStripe
 //    }
 //  )}
 //
+
 //module.exports = paymentStripe
+

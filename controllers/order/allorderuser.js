@@ -16,9 +16,10 @@ const getOrdersByIduser = async (req, res) => {
    } catch (error) {
       console.error(error);
       res.status(500).send("Not found ");
-    }
+   }
+  
   };
 
 module.exports = {
-    getOrdersByIduser
+    getOrdersById
   };

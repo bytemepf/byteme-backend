@@ -12,7 +12,6 @@ async function nodemailerPay(recipient, total) {
         }
     });
 
-
     const mail = await transporter.sendMail({
       from: 'bytemepf@gmail.com',
       to: recipient,
