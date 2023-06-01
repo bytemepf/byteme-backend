@@ -7,8 +7,8 @@ const deleteorder = async (req,res)=>{
     try {
     const userId = req.params.userId;
     const orderuser = await Order.findAll({ where: { userId: userId } });
-    if (orderuser.length > 0) {
-        await  Order.destroy({ where: { userId: userId } });
+    if (orderuser) {
+        await  orderuser.destroy({ where: { userId: userId } });
         res.status(200).send("la orden se eliminado correctamente");
       } else {
         res.status(200).send("no existe orden");

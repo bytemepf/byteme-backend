@@ -4,6 +4,7 @@ const {getOrdersById} = require("../controllers/order/orderId.controllers")
 const {getAll} = require("../controllers/order/getallorder")
 const {getOrdersByIduser} = require("../controllers/order/allorderuser")
 const {deleteorder} = require('../controllers/order/deleteorder')
+const {validateJWT} =require("../middlewares/validateJWT")
 const order = Router();
 
 //Todas las órdenes
@@ -13,7 +14,7 @@ order.get("/:userId", getOrdersById );
 //crear orden por usuario
 order.post("/:userId",postorderuser)
 //Traer una orden en particular
-order.get("/:orderId",getOrdersByIduser );
+order.get("/pagar",getOrdersByIduser );
 //Modificar una orden en particular
 order.delete("/:userId", deleteorder);
 

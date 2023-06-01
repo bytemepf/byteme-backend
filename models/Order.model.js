@@ -15,7 +15,7 @@ const Order = database.define(
         defaultValue: "processed",
       },
       detail:{
-        type: DataTypes.STRING,
+        type: DataTypes.STRING(1000),
         allowNull: true,
       },
       adress: {
@@ -46,10 +46,15 @@ const Order = database.define(
         type: DataTypes.FLOAT,
         allowNull: true,
       },
+      createdAt: {
+        type: DataTypes.DATE,
+        allowNull: false,
+        defaultValue: DataTypes.NOW,
+      },
   },
   { timestamps: false }
 );
-//Order.drop();
+
 module.exports = {
   Order,
 };
