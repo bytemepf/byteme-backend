@@ -6,9 +6,9 @@ const {getOrdersByIduser} = require("../controllers/order/allorderuser")
 const order = Router();
 
 //Todas las órdenes
-order.get("/orders", getAll);
+order.get("/", getAll);
 //Todas las órdenes de un usuario
-order.get("/:userId/orders",getOrdersById );
+order.get("/:userId", getOrdersById );
 //crear orden por usuario
 order.post("/:userId",postorderuser)
 //Traer una orden en particular
